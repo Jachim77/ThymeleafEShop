@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<div align="center" >
+    <h1>Spojovací materiál</h1>
+
+    <img th:src="@{/img/spojovaci_material.JPG}"> <br>
+
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Part number</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>For sale</th>
+            <th>Price</th>
+        </tr>
+
+        <tr th:each="product:${allprodlist}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.partNumber}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"> </td>
+            <td th:text="${product.isForSale}"> </td>
+            <td th:text="${product.price}"></td>
+            <td>
+                <a th:href="@{/showDetail/{id}(id=${product.id})}">Detail</a>
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+    <a th:href="@{/addnew}">Add new product</a>
+    <a th:href="@{/FormForUpdateProductPrice}">Update product price</a>
+    <a th:href="@{/deleteNotForSale}">Delete out of sale products</a> <br>
+
+    <!--<img th:src="@{/img/screw.JPG}">  -->
+</div>
+</body>
+</html>

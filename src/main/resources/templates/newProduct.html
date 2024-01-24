@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New product</title>
+</head>
+<body>
+<h1>Create new product</h1>
+
+<form action="#" th:action="@{/save}" th:object="${product}" method="POST">
+  <input type="text" th:field="*{partNumber}" placeholder="Part Number">
+  <input type="text" th:field="*{name}" placeholder="Name">
+  <input type="text" th:field="*{description}" placeholder="Description">
+  <input type="text" th:field="*{isForSale}" placeholder="For sale = 1, Not for sale = 0">
+  <input type="text" th:field="*{price}" placeholder="Price">
+  <input type="text" th:field="*{image}" placeholder="Image">
+
+  <button type="submit">Save Product</button>
+</form>
+
+<hr>
+<a th:href="@{/}">Back to Home Page</a>
+
+</body>
+</html>
